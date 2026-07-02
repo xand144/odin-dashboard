@@ -1,15 +1,19 @@
+:root {
+    --main-font-size: clamp(12px, 1.5vh, 24px);
+}
+
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
 
 html {
-    font-size: 16px;
+    font-size: var(--main-font-size, 16px);
 }
 
 body {
     display: grid;
     height: 100vh;
-    grid-template: 1fr 0.5fr 0.5fr 70% / max-content 1fr;
+    grid-template: max-content 1fr / max-content 1fr;
 }
 
 .sidebar {
@@ -22,7 +26,7 @@ body {
 
 .sidebar-container {
     width: max-content;
-    margin: 1rem 1rem 0 2rem;
+    margin: 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -38,14 +42,88 @@ body {
 }
 
 .header {
-    grid-area: 1 / 2 / 3 / -1;
+    grid-area: 1 / 2 / 2 / -1;
     background-color: #FFF;
     position: relative;
     box-shadow: 0px 5px 20px -10px #4F4F4F;
+    display: grid;
+    grid-template: max-content 1fr / 2fr 1fr;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    gap: 2rem;
+}
+
+.header > * {
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    grid-area: 1 / 1 / 2 / 2;
+    gap: 1rem;
+}
+
+.search input {
+    height: 2rem;
+    width: 100%;
+    border: none;
+    border-radius: 50px;
+    background-color: #DBDBDB;
+    padding: 0 1rem;
+}
+
+.profile {
+    grid-area: 1 / 2 / 2 / -1;
+    gap: 2rem;
+    justify-content: flex-end;
+}
+
+.profile-name {
+    font-weight: 800;
+}
+
+.user-greeting {
+    grid-area: 2 / 1 / -1 / 2;
+    display: grid;
+    gap: 0 1rem;
+    grid-template: 1fr 2fr / max-content 2fr;
+}
+
+.user-greeting .profile-image {
+    grid-area: 1 / 1 / 3 / 2;
+}
+
+.greeting {
+    grid-area: 1 / 2 / 2 / -1;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.user-name {
+    grid-area: 2 / 2 / -1 / -1;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.btns {
+    grid-area: 2 / 2 / -1 / -1;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+.btns button {
+    border: none;
+    border-radius: 50px;
+    padding: 1.2rem 1.5rem;
+    color:#FFF;
+    background-color: #42A7ED;
+    font-weight: 800;
+    font-size: 1.2rem;
+    line-height: 0;
 }
 
 .main-content {
-    grid-area: 3 / 2 / -1 / -1;
+    grid-area: 2 / 2 / -1 / -1;
     padding: 1rem;
     background-color: #DBDBDB;
 }
@@ -85,3 +163,22 @@ svg {
     width: min-content;
 }
 
+.header svg {
+    fill: black;
+}
+
+.profile-image {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: #4F4F4F;
+    background-image: url(images/toucan.jpg);
+    background-size: cover;
+}
+
+.profile-image.small {
+    width: 3rem;
+    height: 3rem;
+    min-width: 3rem;
+    min-height: 3rem;
+}
