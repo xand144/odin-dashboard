@@ -124,8 +124,12 @@ body {
 
 .main-content {
     grid-area: 2 / 2 / -1 / -1;
-    padding: 1rem;
     background-color: #DBDBDB;
+    display: grid;
+    font-size: 1.5rem;
+    grid-template: max-content 1fr / 3fr 1fr;
+    padding: 1.5rem;
+    gap: 0 2rem;
 }
 
 ul {
@@ -182,3 +186,33 @@ svg {
     min-width: 3rem;
     min-height: 3rem;
 }
+
+.side-card-container {
+    grid-area: 2 / 2 / -1 / -1;
+    display: grid;
+    grid-template-rows: 1fr 3rem 2rem 1fr;
+}
+
+.side-card-container h3 {
+    grid-row: 3 / 4;
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+.trending {
+    grid-row-start: 4;
+}
+
+.side-card,
+.main-card {
+    background-color: #FFF;
+    border-radius: 10px;
+}
+
+.main-card-container {
+    grid-area: 2 / 1 / -1 / 2;
+    display: grid;
+    gap: 2rem;
+    grid-template: repeat(3, 1fr) / repeat(auto-fit, minmax(400px, 1fr));
+}
+
